@@ -2,7 +2,7 @@ Task 02 — Data Cleaning and Preparation
 
 An end-to-end data cleaning and preprocessing workflow using Python and Pandas to prepare a Superstore dataset for analysis by handling missing values, removing duplicate records, converting data types, and exporting cleaned data.
 
-Objective
+# Objective
 
 Prepare the dataset for further analysis by performing:
 
@@ -12,9 +12,9 @@ Convert string columns into appropriate data types
 Clean and preprocess raw data
 Export cleaned dataset into a new CSV file
 
-Dataset
+# Dataset
 
-Source: https://www.kaggle.com/datasets/himanshuuike/superstore-sales-dataset/data?utm_source=chatgpt.com
+Source: Sample Superstore Dataset
 
 Property	Details
 File	samplesuperstore.csv
@@ -23,26 +23,28 @@ Key columns	Order Date, Ship Date, Sales, Profit, Category, Region
 
 Dataset was loaded into Google Colab using the Pandas library.
 
-Project Structure
+# Project Structure
 SCT_DS_2.ipynb                     # Main notebook
 samplesuperstore.csv              # Raw dataset
 Cleaned_Global_Superstore.csv     # Cleaned dataset
 README.md                         # Project documentation
 Requirements
 
-Install dependencies:
+# Install dependencies:
 
 pip install pandas
 Library	Purpose
 pandas	Data loading and preprocessing
-How to Run
+
+# How to Run
 Open Google Colab or Jupyter Notebook
 Upload samplesuperstore.csv
 Import required libraries
 Run all notebook cells sequentially
 Perform data cleaning operations
 Export cleaned dataset
-Analysis Steps
+
+# Analysis Steps
 Step	Description
 1	Import Pandas library
 2	Load dataset
@@ -53,51 +55,35 @@ Step	Description
 7	Remove duplicate rows
 8	Convert Order Date and Ship Date into datetime
 9	Export cleaned dataset
-Code Used
+
+# Code Used
 import pandas as pd
-
-# Load dataset
 df = pd.read_csv("/content/samplesuperstore.csv")
-
-# Display first rows
 print(df.head())
-
-# Check missing values
 print(df.isnull().sum())
-
-# Fill numerical missing values
 numeric_cols = df.select_dtypes(include=['int64','float64']).columns
-
 for col in numeric_cols:
     df[col] = df[col].fillna(df[col].mean())
-
-# Fill categorical missing values
 categorical_cols = df.select_dtypes(include=['object']).columns
-
 for col in categorical_cols:
     df[col] = df[col].fillna(df[col].mode()[0])
-
-# Remove duplicates
 df.drop_duplicates(inplace=True)
-
-# Convert date columns
 df['Order Date'] = pd.to_datetime(df['Order Date'], errors='coerce')
 df['Ship Date'] = pd.to_datetime(df['Ship Date'], errors='coerce')
-
-# Save cleaned dataset
 df.to_csv("Cleaned_Global_Superstore.csv", index=False)
-
 print("Cleaning completed successfully")
-Key Findings
+
+# Key Findings
 No missing values were found in the dataset
 Duplicate records were handled successfully
 Date columns were converted into datetime format
 Dataset preprocessing completed successfully
 Cleaned data exported as Cleaned_Global_Superstore.csv
-Result
+
+# Result
 
 The dataset was successfully cleaned and prepared for further analysis.
 
-License
+# License
 
 This project is for educational and internship purposes only.
