@@ -1,8 +1,9 @@
-Task 02 — Data Cleaning and Preparation
+# SCT_DA_2
+# Task 02 — Data Cleaning and Preparation
 
 An end-to-end data cleaning and preprocessing workflow using Python and Pandas to prepare a Superstore dataset for analysis by handling missing values, removing duplicate records, converting data types, and exporting cleaned data.
 
-Objective
+# Objective
 
 Prepare the dataset for further analysis by performing:
 
@@ -12,7 +13,7 @@ Convert string columns into appropriate data types
 Clean and preprocess raw data
 Export cleaned dataset into a new CSV file
 
-Dataset
+# Dataset
 
 Source: Sample Superstore Dataset
 
@@ -23,20 +24,20 @@ Key columns	Order Date, Ship Date, Sales, Profit, Category, Region
 
 Dataset was loaded into Google Colab using the Pandas library.
 
-Project Structure
-SCT_DS_2.ipynb                     # Main notebook
+# Project Structure
+SCT_DA_2.ipynb                     # Main notebook
 samplesuperstore.csv              # Raw dataset
 Cleaned_Global_Superstore.csv     # Cleaned dataset
 README.md                         # Project documentation
 Requirements
 
-Install dependencies:
+# Install dependencies:
 
 pip install pandas
 Library	Purpose
 pandas	Data loading and preprocessing
 
-How to Run
+# How to Run
 Open Google Colab or Jupyter Notebook
 Upload samplesuperstore.csv
 Import required libraries
@@ -44,7 +45,7 @@ Run all notebook cells sequentially
 Perform data cleaning operations
 Export cleaned dataset
 
-Analysis Steps
+# Analysis Steps
 Step	Description
 1	Import Pandas library
 2	Load dataset
@@ -56,7 +57,7 @@ Step	Description
 8	Convert Order Date and Ship Date into datetime
 9	Export cleaned dataset
 
-Code Used
+# Code Used
 import pandas as pd
 df = pd.read_csv("/content/samplesuperstore.csv")
 print(df.head())
@@ -73,17 +74,17 @@ df['Ship Date'] = pd.to_datetime(df['Ship Date'], errors='coerce')
 df.to_csv("Cleaned_Global_Superstore.csv", index=False)
 print("Cleaning completed successfully")
 
-Key Findings
-No missing values were found in the dataset
-Duplicate records were handled successfully
-Date columns were converted into datetime format
-Dataset preprocessing completed successfully
-Cleaned data exported as Cleaned_Global_Superstore.csv
+# Key Findings
+No missing values were found in the dataset.
+Duplicate records were handled successfully.
+Date columns were converted into datetime format.
+Dataset preprocessing completed successfully.
+Cleaned data exported as Cleaned_Global_Superstore.csv.
 
-Result
+# Result
 
 The dataset was successfully cleaned and prepared for further analysis.
 
- License
+ # License
 
 This project is for educational and internship purposes only.
